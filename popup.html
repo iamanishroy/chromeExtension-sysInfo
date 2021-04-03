@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="popup.js" type="module"></script>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content {
+        border-right: 1px solid;
+        width: 300px;
+    }
+
+    .content .header {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 8px;
+        text-decoration: underline;
+    }
+
+
+    .content .data .type b {
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding-left: 5px;
+    }
+
+    .content .data .type .param {
+        display: flex;
+        padding: 5px auto;
+        align-items: center;
+    }
+
+    .content .data .type .param:nth-child(odd) {
+        background: rgb(221, 221, 221);
+    }
+
+    .content .data .type {
+        border-bottom: 1px solid;
+    }
+
+    .title,
+    .value {
+        padding-left: 5px;
+    }
+
+    .title {
+        border-right: 1px solid;
+        width: 120px;
+    }
+
+    .value {
+        width: 180px;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <div class="header">
+            System - Information
+        </div>
+        <div class="data">
+            <div class="type" id="cpu"></div>
+            <div class="type" id="memory"></div>
+            <div class="type" id="storage"></div>
+        </div>
+    </div>
+</body>
+
+</html>
