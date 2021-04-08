@@ -1,14 +1,16 @@
-chrome.runtime.onConnect.addListener(function (port) {
-  port.onMessage.addListener(function (msg) {
-    if (msg.query == "send-info") {
+chrome.runtime.onConnectExternal.addListener(function (port) {
+  port.onMessage.addListener(function (request) {
+    if (request.query == "sysInfo") {
+      var systemInfo = {};
       chrome.system.cpu.getInfo((data) => {
-        port.postMessage({ query: "cpu-info", info: data });
-      });
-      chrome.system.memory.getInfo((data) => {
-        port.postMessage({ query: "memory-info", info: data });
-      });
-      chrome.system.storage.getInfo((data) => {
-        port.postMessage({ query: "storage-info", info: data });
+        systemInfo.cpuInfo = data;
+        chrome.system.memory.getInfo((data) => {
+          systemInfo.memoryInfo = data;
+          chrome.system.storage.getInfo((data) => {
+            systemInfo.storageInfo = data;
+            port.postMessage({ systemInfo: systemInfo });
+          });
+        });
       });
     }
   });

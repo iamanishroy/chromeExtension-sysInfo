@@ -1,3 +1,5 @@
+// This is not in use
+
 var port;
 port = chrome.runtime.connect();
 chrome.runtime.connect().onDisconnect.addListener(function () {

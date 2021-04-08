@@ -1,0 +1,11 @@
+      "matches": ["*://*/*", "file://*/*"],
+      ,/*://*.anishroy.ml/*", "*://*/*", "file://*/*"],
+
+
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1:5500/*", "https://sysinfo.netlify.app/*"],
+      "all_frames": true,
+      "js": ["content-script.js"]
+    }
+  ],
